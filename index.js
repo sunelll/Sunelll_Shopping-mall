@@ -2,20 +2,20 @@ const express = require('express')
 const app = express()
 const port = 5000
 
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
-const config = require('./config/key')
+const config = require('./config/key');
+const { auth } = require('./middleware/auth');
 const { User } = require("./model/User");
+//const res = require('express/lib/response');
 
 //application/x-www-form-urlncoded <이런 형태의 코드를 분석해서 가지고 올수 있게 해주는 것
 app.use(bodyParser.urlencoded({ extended: true }))
 //application/json
 app.use(bodyParser.json())
-
 app.use(cookieParser())
 
+const mongoose = require('mongoose');
 mongoose.connect(config.mongoURI , {  
 }).then(() => console.log('MongoDB Connected...'))
 .catch(err=> console.log(err))
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   res.send('Hello World! 오늘은 1월입니다! 새해복 만이 받으세용!')
 })
 
-app.post('/register', (req, res) => { 
+app.post('/api/users/register', (req, res) => { 
   //회원 가입 할 때 필요한 정보드를 CLIENT에서 가져오면,
   //그것들을 데이터 베이스에 넣어준다.
 
@@ -39,7 +39,7 @@ app.post('/register', (req, res) => {
   })
 })
 
-app.post('/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
   
   //1.요청된 이메일을 데이터베이스에서 있는지 찾는다. 몽고디비 메세지
   User.findOne({ email: req.body.email } , (err, user) => {
@@ -62,7 +62,7 @@ app.post('/login', (req, res) => {
             if(err) return res.status(400).send(err);
   
             //쿠키에 토큰을 저장
-            res.cookie("x-auth", user.token)
+            res.cookie("x_auth", user.token)
             .status(200)
             .json({
               loginSuccess: true, userId: user._id })
@@ -70,6 +70,11 @@ app.post('/login', (req, res) => {
             })
         })
     })
+})
+
+//Auth 기능
+app.get('/api/users/auth', auth, (req, res) =>{
+
 })
 
 app.listen(port, () => {
