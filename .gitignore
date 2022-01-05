@@ -106,3 +106,6 @@ dist
 
 # MONGO_URI
 dev.js
+
+# react app - setting
+client

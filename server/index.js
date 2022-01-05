@@ -73,7 +73,7 @@ app.post('/api/users/login', (req, res) => {
 })
 
 //Auth 기능
-app.get('/api/users/auth', auth, (req, res) =>{
+app.get('/api/users/auth', auth, (res, req) =>{
   
   //여기까지 미들웨어를통과해 왔다는 얘기는 AUthentication 이 True 라는 말
   res.status(200).json({
