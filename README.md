@@ -7,15 +7,16 @@ JavaScript(React)를 이용해 작업했습니다.
 
 
 # 넬_쇼핑몰 미리보기
-<img src="https://i.imgur.com/JL9L8C5.png"  width="319" height="500">
+<img src=""  width="319" height="500">
 
 
 # 개발 환경
 + windiw10
 + Android Studio
 + Java 1.8.0_301
-+ Firebase
-+ Test phone: Android OS 10  
++ react-router-dom 7.21.0 (+@5)
++ 
++
 
 
 
@@ -30,4 +31,7 @@ JavaScript(React)를 이용해 작업했습니다.
 # info
 
 개발에 참고한 자료를 첨부합니다. 
+
+1. 노드+리액트 기본 자료
+https://www.inflearn.com/course/%EB%94%B0%EB%9D%BC%ED%95%98%EB%A9%B0-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%85%B8%EB%93%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B8%B0%EB%B3%B8/dashboard
 
