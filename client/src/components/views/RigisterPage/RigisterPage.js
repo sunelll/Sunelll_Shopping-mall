@@ -3,7 +3,7 @@ import React from 'react'
 function RigisterPage() {
     return (
         <div>
-            RigisterPage
+            RigisterPage 래지스터 페이지
         </div>
     )
 }

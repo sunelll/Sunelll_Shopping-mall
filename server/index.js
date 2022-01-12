@@ -1,13 +1,11 @@
 const express = require('express')
 const app = express()
-const port = 5000
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const config = require('./config/key');
 const { auth } = require('./middleware/auth');
-const { User } = require("./model/User");
-//const res = require('express/lib/response');
+const { User } = require("./config/model/User");
 
 //application/x-www-form-urlncoded <이런 형태의 코드를 분석해서 가지고 올수 있게 해주는 것
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -16,12 +14,17 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 
 const mongoose = require('mongoose');
+
 mongoose.connect(config.mongoURI , {  
 }).then(() => console.log('MongoDB Connected...'))
 .catch(err=> console.log(err))
 
 app.get('/', (req, res) => {
   res.send('Hello World! 오늘은 1월입니다! 새해복 만이 받으세용!')
+})
+
+app.get('/api/hello', (req,res) =>{
+  res.send("로그인 성공")
 })
 
 app.post('/api/users/register', (req, res) => { 
@@ -99,6 +102,8 @@ app.get('/api/users/logout', auth, (req, res) =>
       })
     })
 })
+
+const port = 5000
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

@@ -14,7 +14,7 @@ JavaScript(React)를 이용해 작업했습니다.
 + windiw10
 + Android Studio
 + Java 1.8.0_301
-+ react-router-dom 7.21.0 (+@5)
++ 
 + 
 +
 
@@ -22,7 +22,7 @@ JavaScript(React)를 이용해 작업했습니다.
 
 # 사용 언어
 
-```JavaScript
+```JavaScript ( react-router-dom 7.21.0 (+@5) )
 ```
 
 

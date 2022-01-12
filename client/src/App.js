@@ -6,34 +6,20 @@ import {
   Link
 } from "react-router-dom";
 
+import LandingPage from './components/views/LandingPage/LandingPage'
+import LoginPage from './components/views/LoginPage/LoginPage'
+import RigisterPage from './components/views/RigisterPage/RigisterPage'
+import MyPage from './components/views/MyPage/MyPage';
 
 function App() {
   return (
     <Router>
     <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-      </ul>
-
-      <hr />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/mypage" component={MyPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/rigister" component={RigisterPage}/>
       </Switch>
     </div>
   </Router>
@@ -42,27 +28,3 @@ function App() {
 
 export default App
 
-
-function Home() {
-  return (
-    <div>
-      <h2>Home 홈페이지 컴포넌트</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About 어바웃 컴포넌트</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard 대시보드 컴포넌트</h2>
-    </div>
-  );
-}
