@@ -5,34 +5,35 @@ function LandingPage() {
 
     useEffect(() => {
         axios.get('/api/hello')
-        .then(response => console.log(response.data, for_test()))
+        .then(response => console.log(response.data))
     }, [])
-
-    function for_test(){
-
-        const arr = [10, 20, 30, 40];
-        for(const item of arr){
-            console.log(item)
-        }
-
-        const obj = {
-            name : 'hesu',
-            job : 'programas'
-        }
-        
-        for (const key in obj){
-            console.log(`${key} : ${obj[key]}`)
-        }
-
-        //for(let i = 0; i< 10; i++ ){
-        //   console.log(i)
-        //}
-    }
-
     return (
         
         <div>
             <p>LandingPage 랜딩페이지 컴포넌트</p>
+
+
+            <progress value="70" min="0" max="100"></progress>
+
+            <meter min="0" max="100" low="20" high="65" optimum="15" value="20"></meter>
+
+            <details>
+                <summary>what is the best?</summary>
+                <span>고기!</span>
+            </details>
+
+            <input type="week"></input>
+            <input type="time"></input>
+
+
+            <picture>
+                <source srcSet='src/00.jpg'></source>
+                <img></img>
+            </picture>
+
+            <datalist>
+                <input type="text"/>
+            </datalist>
         </div>
     )
 }
