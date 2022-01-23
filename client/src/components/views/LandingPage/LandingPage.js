@@ -11,8 +11,6 @@ function LandingPage() {
         
         <div>
             <p>LandingPage 랜딩페이지 컴포넌트</p>
-
-
             <progress value="70" min="0" max="100"></progress>
 
             <meter min="0" max="100" low="20" high="65" optimum="15" value="20"></meter>
@@ -28,7 +26,6 @@ function LandingPage() {
 
             <picture>
                 <source srcSet='src/00.jpg'></source>
-                <img></img>
             </picture>
 
             <datalist>
